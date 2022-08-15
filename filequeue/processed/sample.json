@@ -1,0 +1,10 @@
+[
+{"customerId":1 , "transactionId": 100, "customerName": "Peter", "amount": 100, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":2 , "transactionId": 200, "customerName": "Martin", "amount": 100, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":1 , "transactionId": 101, "customerName": "Peter", "amount": 200, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":1 , "transactionId": 102, "customerName": "Peter", "amount": 300, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":1 , "transactionId": 103, "customerName": "Peter", "amount": 250, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":1 , "transactionId": 104, "customerName": "Peter", "amount": 300, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":2 , "transactionId": 201, "customerName": "Martin", "amount": 250, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"},
+{"customerId":2 , "transactionId": 202, "customerName": "Martin", "amount": 300, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"}
+]
