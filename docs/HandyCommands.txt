@@ -1,0 +1,72 @@
+cd C:\personnal\softwares\kafka\
+
+start zookeeper
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+start Kafka server
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+create topic
+.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic transaction-reader.req
+
+.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic expense-segregator.req
+
+check topic details
+.\bin\windows\kafka-topics.bat --describe --topic transaction-reader.req --bootstrap-server localhost:9092
+
+.\bin\windows\kafka-topics.bat --describe --topic expense-segregator.req --bootstrap-server localhost:9092
+
+create/produce message in topic
+.\bin\windows\kafka-console-producer.bat --topic transaction-reader.req --bootstrap-server localhost:9092
+
+{"customerId":1 , "transactionId": 105, "customerName": "Peter", "amount": 600, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"}
+
+{"customerId":2 , "transactionId": 203, "customerName": "Martin", "amount": 750, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"}
+
+
+.\bin\windows\kafka-console-consumer.bat --topic transaction-reader.req --group group_transaction --bootstrap-server localhost:9092
+
+.\bin\windows\kafka-console-consumer.bat --topic expense-segregator.req --group group_transaction --bootstrap-server localhost:9092
+
+
+application URL's:
+Eurekha
+http://localhost:8761/
+
+DB URL's
+http://localhost:8081/h2-console
+http://localhost:8200/h2-console
+http://localhost:8300/h2-console
+
+swagger url's
+http://localhost:8081/swagger-ui.html
+http://localhost:8200/swagger-ui.html
+http://localhost:8300/swagger-ui.html
+http://localhost:8400/swagger-ui.html
+
+
+Actuator url's
+http://localhost:8081/actuator
+http://localhost:8200/actuator
+http://localhost:8300/actuator
+http://localhost:8400/actuator
+
+
+
+Api gateway:
+Transaction-reader
+http://localhost:8765/transaction-reader/getErrorFiles
+http://localhost:8765/transaction-reader/getErrorTransaction
+
+Expense-Analyser
+http://localhost:8765/expense-analyser/1/FOOD
+http://localhost:8765/expense-analyser/1
+
+Expense-segregate
+http://localhost:8765/expense-segregate/1/FOOD
+http://localhost:8765/expense-segregate/1
+
+Expense-category-supplier
+http://localhost:8765/expense-category-supplier/reliancetrends
+
+
