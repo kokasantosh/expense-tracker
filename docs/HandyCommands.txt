@@ -23,6 +23,15 @@ create/produce message in topic
 
 {"customerId":2 , "transactionId": 203, "customerName": "Martin", "amount": 750, "transactionPlace": "reliancetrends", "date": "2022-08-16T16:30:05.100Z"}
 
+error replay in file
+[
+{"customerId":1 , "transactionId": 106, "customerName": "Peter", "amount": 250, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"}
+]
+
+[
+{"customerId":1 , "transactionId": 107, "customerName": "Peter", "amount": 550, "transactionPlace": "zomato", "date": "2022-08-16T16:30:05.100Z"}
+]
+
 
 .\bin\windows\kafka-console-consumer.bat --topic transaction-reader.req --group group_transaction --bootstrap-server localhost:9092
 

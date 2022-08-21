@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TransactionDaoService {
@@ -22,17 +23,19 @@ public class TransactionDaoService {
      * @param state
      */
     public void saveTransaction(Transaction transaction, String fileName, InputSource source, TransactionState state) {
-        transaction.setFileName(fileName);
-        transaction.setSource(source.getValue());
-        transaction.setTransactionState(state.getValue());
-        saveTransaction(transaction);
+        Optional<Transaction> transactionOptional = transactionRepository.findById(transaction.getTransactionId());
+        Transaction transactionToSave = transactionOptional.isPresent() ? transactionOptional.get() : transaction;
+        transactionToSave.setFileName(fileName);
+        transactionToSave.setSource(source.getValue());
+        transactionToSave.setTransactionState(state.getValue());
+        saveTransaction(transactionToSave);
     }
 
     /**
      * Saves the transaction to DB
      * @param transaction
      */
-    public void saveTransaction(Transaction transaction) {
+    private void saveTransaction(Transaction transaction) {
         transactionRepository.save(transaction);
     }
 

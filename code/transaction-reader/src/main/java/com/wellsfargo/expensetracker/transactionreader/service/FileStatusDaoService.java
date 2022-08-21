@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FileStatusDaoService {
@@ -20,8 +21,10 @@ public class FileStatusDaoService {
      * @param fileStatusEnum
      */
     public void saveFileStatus(FileStatus fileStatus, TransactionState fileStatusEnum) {
-        fileStatus.setState(fileStatusEnum.getValue());
-        fileStatusRepository.save(fileStatus);
+        Optional<FileStatus> fileStatusOptional = fileStatusRepository.findById(fileStatus.getFileName());
+        FileStatus fileStatusToSave = fileStatusOptional.isPresent()?fileStatusOptional.get():fileStatus;
+        fileStatusToSave.setState(fileStatusEnum.getValue());
+        fileStatusRepository.save(fileStatusToSave);
     }
 
     /**
