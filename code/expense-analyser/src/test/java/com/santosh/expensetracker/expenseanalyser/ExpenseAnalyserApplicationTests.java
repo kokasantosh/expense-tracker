@@ -1,6 +1,6 @@
-package com.wellsfargo.expensetracker.expenseanalyser;
+package com.santosh.expensetracker.expenseanalyser;
 
-import com.wellsfargo.expensetracker.expenseanalyser.controller.ExpenseAnalyserController;
+import com.santosh.expensetracker.expenseanalyser.controller.ExpenseAnalyserController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

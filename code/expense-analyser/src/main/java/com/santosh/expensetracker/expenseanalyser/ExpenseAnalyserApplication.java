@@ -1,4 +1,4 @@
-package com.wellsfargo.expensetracker.expenseanalyser;
+package com.santosh.expensetracker.expenseanalyser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

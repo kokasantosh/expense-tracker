@@ -1,10 +1,12 @@
 cd C:\personnal\softwares\kafka\
 
-start zookeeper
+start & stop zookeeper
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+.\bin\windows\zookeeper-server-stop.bat
 
-start Kafka server
+start & stop Kafka server
 .\bin\windows\kafka-server-start.bat .\config\server.properties
+.\bin\windows\kafka-server-stop.bat
 
 create topic
 .\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic transaction-reader.req
